@@ -7,3 +7,8 @@ git_repository(
 load("@org_pubref_rules_protobuf//cpp:rules.bzl", "cpp_proto_repositories")
 cpp_proto_repositories()
 
+new_git_repository(
+    name = "hiredis",
+    remote = "https://github.com/redis/hiredis.git"
+    build_file = "hiredis.BUILD",
+)
