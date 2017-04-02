@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package snowflake;
+
+// The greeting service definition.
+service Greeter {
+  // Sends a greeting
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+}
+
+// The request message containing the user's name.
+message HelloRequest {
+  string name = 1;
+  common.Config config = 2;
+}
+
+// The response message containing the greetings
+message HelloReply {
+  string message = 1;
+}
+
