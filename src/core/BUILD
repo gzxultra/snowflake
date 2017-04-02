@@ -1,16 +1,5 @@
 package(default_visibility = ["//visibility:public"])
 
-cc_test(
-    name = "test",
-    size = "small",
-    srcs = ["client_test.cc"],
-    copts = ["-Iexternal/gtest/include"],
-    tags = ["exclusive"],
-    deps = [
-        ":clientlib",
-        "@gtest//:gtest",
-    ],
-)
 
 cc_binary(
     name = "client",
