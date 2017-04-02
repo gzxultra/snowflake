@@ -1,7 +1,6 @@
 package(default_visibility = ["//visibility:public"])
 
-load("//third_party/rules_protobuf/cpp:rules.bzl", "cc_proto_library")
-
+load("@org_pubref_rules_protobuf//cpp:rules.bzl", "cc_proto_library")
 
 filegroup(
     name = "protos",
