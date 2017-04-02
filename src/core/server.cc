@@ -5,16 +5,16 @@
 
 #include <grpc++/grpc++.h>
 
-#include "src/proto/snowflake.proto.pb.h"
+#include "src/proto/snowflake.pb.h"
 #include "src/proto/snowflake.grpc.pb.h"
 
 using grpc::Server;
 using grpc::ServerBuilder;
 using grpc::ServerContext;
 using grpc::Status;
-using snowflake:HelloRequest;
-using snowflake:HelloReply;
-using snowflake:Greeter;
+using snowflake::HelloRequest;
+using snowflake::HelloReply;
+using snowflake::Greeter;
 
 // Logic and data behind the server's behavior.
 class GreeterServiceImpl final : public Greeter::Service {
