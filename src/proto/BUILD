@@ -1,6 +1,6 @@
 package(default_visibility = ["//visibility:public"])
 
-load("//cpp:rules.bzl", "cc_proto_library")
+load("//third_party/rules_protobuf/cpp:rules.bzl", "cc_proto_library")
 
 
 filegroup(
@@ -10,11 +10,6 @@ filegroup(
 
 cc_proto_library(
     name = "cpp",
-    proto_deps = [
-        "//src/proto:cpp",
-    ],
     protos = [":protos"],
-    verbose = 0,
-    with_grpc = True,
 )
 
