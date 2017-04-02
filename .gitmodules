@@ -1,3 +1,0 @@
-[submodule "third_party/rules_protobuf"]
-	path = third_party/rules_protobuf
-	url = https://github.com/pubref/rules_protobuf.git
