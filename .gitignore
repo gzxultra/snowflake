@@ -34,3 +34,6 @@ bazel-genfiles
 bazel-out
 bazel-snowflake
 bazel-testlogs
+
+# cmake builds
+build

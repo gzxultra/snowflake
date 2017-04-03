@@ -5,8 +5,8 @@
 
 #include <grpc++/grpc++.h>
 
-#include "src/proto/snowflake.pb.h"
-#include "src/proto/snowflake.grpc.pb.h"
+#include "snowflake.pb.h"
+#include "snowflake.grpc.pb.h"
 
 using grpc::Server;
 using grpc::ServerBuilder;
