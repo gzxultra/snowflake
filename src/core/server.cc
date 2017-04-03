@@ -4,6 +4,7 @@
 #include <string>
 
 #include <grpc++/grpc++.h>
+#include "../../third_party/hiredis/hiredis.h"
 
 #include "snowflake.pb.h"
 #include "snowflake.grpc.pb.h"
