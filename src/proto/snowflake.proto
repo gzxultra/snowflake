@@ -2,6 +2,9 @@ syntax = "proto3";
 
 package snowflake;
 
+import "google/protobuf/timestamp.proto";
+
+
 // The greeting service definition.
 service Greeter {
   // Sends a greeting
@@ -17,5 +20,63 @@ message HelloRequest {
 // The response message containing the greetings
 message HelloReply {
   string message = 1;
+}
+
+message Slot {
+    int32 id = 1;
+    string name = 2;
+    string title = 3;
+    string description = 4;
+}
+
+message Group {
+    int32 id = 1;
+    string name = 2;
+    string title = 3;
+    string description = 4;
+}
+
+
+message Material {
+    int32 id = 1;
+    string name = 2;
+    string material_info = 3;
+}
+
+enum Platform {
+    IPHONE = 0;
+    ANDORID = 1;
+    PC_WEBESITE = 2;
+    MOBILE_WEBSITE = 3;
+}
+
+message PlatformRequirement {
+    Platform platform = 1;
+    string version = 2;
+}
+
+message Constraint {
+    repeated string regions = 1;
+    repeated PlatformRequirement platfroms = 2;
+    repeated string keywords = 3;
+}
+
+message Tracking {
+    Platform Platfor = 1;
+    repeated string click_tracking_url = 2;
+    repeated string expose_tracking_url = 3;
+}
+
+message Delivery {
+    int32 id = 1;
+    string name = 2;
+    Slot slot_info = 3;
+    Group group_info = 4;
+    Material material_info = 5;
+    string weight = 6;
+    google.protobuf.Timestamp start_time = 7;
+    google.protobuf.Timestamp end_time = 8;
+    Constraint Constraint = 9;
+    repeated Tracking tracking = 10;
 }
 
