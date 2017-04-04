@@ -45,6 +45,11 @@ void RedisConn::disconnect()
 char* RedisConn::query(string key)
 {
     redisReply* reply = (redisReply*)redisCommand(redis_ctx_, "GET %s", key.c_str());
+    cout << reply->str;
     return reply->str;
 }
 
+void RedisConn::set(string key, string data)
+{
+    redisReply* reply = (redisReply*)redisCommand(redis_ctx_, "SET %s %s", key.c_str(), data.c_str());
+}

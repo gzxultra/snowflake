@@ -14,16 +14,36 @@ using grpc::Server;
 using grpc::ServerBuilder;
 using grpc::ServerContext;
 using grpc::Status;
-using snowflake::HelloRequest;
-using snowflake::HelloReply;
+using snowflake::QueryRequest;
+using snowflake::QueryReply;
+using snowflake::SetRequest;
+using snowflake::SetReply;
 using snowflake::Greeter;
+using std::cout;
+using std::endl;
 
 // Logic and data behind the server's behavior.
 class GreeterServiceImpl final : public Greeter::Service {
-  Status SayHello(ServerContext* context, const HelloRequest* request,
-                  HelloReply* reply) override {
-    std::string prefix("Hello ");
-    reply->set_message(prefix + request->name());
+  Status Query(ServerContext* context, const QueryRequest* request,
+                  QueryReply* reply) override {
+    RedisConn conn("mango", 6379);
+    conn.connect();
+    string key(request->key());
+    string data(conn.query(key));
+    reply->set_key(key);
+    reply->set_data(data);
+    return Status::OK;
+  }
+
+  Status Set(ServerContext* context, const SetRequest* request,
+                  SetReply* reply) override {
+    RedisConn conn("mango", 6379);
+    conn.connect();
+    string key(request->key());
+    string data(request->data());
+    conn.set(key, data);
+    reply->set_key(key);
+    reply->set_data(data);
     return Status::OK;
   }
 };
@@ -48,8 +68,6 @@ void RunServer() {
 }
 
 int main(int argc, char** argv) {
-  RedisConn conn("mango", 6379);
-  conn.connect();
   RunServer();
   return 0;
 }

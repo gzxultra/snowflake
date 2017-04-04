@@ -9,6 +9,8 @@ import "google/protobuf/timestamp.proto";
 service Greeter {
   // Sends a greeting
   rpc SayHello (HelloRequest) returns (HelloReply) {}
+  rpc Query (QueryRequest) returns (QueryReply) {}
+  rpc Set (SetRequest) returns (SetReply) {}
 }
 
 // The request message containing the user's name.
@@ -20,6 +22,26 @@ message HelloRequest {
 // The response message containing the greetings
 message HelloReply {
   string message = 1;
+}
+
+
+message QueryRequest {
+    string key = 1;
+}
+
+message QueryReply {
+    string key = 1;
+    string data = 2;
+}
+
+message SetRequest {
+    string key = 1;
+    string data = 2;
+}
+
+message SetReply {
+    string key = 1;
+    string data = 2;
 }
 
 message Slot {

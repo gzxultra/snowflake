@@ -19,6 +19,7 @@ public:
     void connect();
     void disconnect();
     char* query(string key);
+    void set(string key, string data);
 
 private:
     string host;
