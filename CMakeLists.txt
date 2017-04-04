@@ -38,6 +38,5 @@ set(GENERATED_PROTOBUF_FILES ${SNOWFLAKE_PB_H_FILE} ${SNOWFLAKE_PB_CPP_FILE}
 include_directories(${GENERATED_PROTOBUF_PATH})
 link_libraries(grpc++_unsecure grpc gpr ${PROTOBUF_LIBRARY})
 
-add_executable(server src/core/server.cc ${GENERATED_PROTOBUF_FILES})
-add_executable(client src/core/client_main.cc src/core/client.cc ${GENERATED_PROTOBUF_FILES})
-
+add_executable(server src/core/server.cc src/core/redis_conn.cc ${GENERATED_PROTOBUF_FILES})
+target_link_libraries(server hiredis)

@@ -5,6 +5,7 @@
 
 #include <grpc++/grpc++.h>
 #include "../../third_party/hiredis/hiredis.h"
+#include "redis_conn.h"
 
 #include "snowflake.pb.h"
 #include "snowflake.grpc.pb.h"
@@ -47,8 +48,9 @@ void RunServer() {
 }
 
 int main(int argc, char** argv) {
+  RedisConn conn("mango", 6379);
+  conn.connect();
   RunServer();
-
   return 0;
 }
 
