@@ -1,1 +1,12 @@
 # snowflake
+
+
+```shell
+
+git clone https://github.com/gzxultra/snowflake.git
+git submodule update --init --recursive
+mkdir build & cd build
+cmake ..
+make
+
+```
